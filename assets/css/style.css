@@ -1,0 +1,29 @@
+
+body{
+    font-family: Arial, Helvetica, sans-serif
+}
+
+input[type="text"] {
+    height: 50px;
+    width: 400px;
+    border: solid;
+    border-width: .1em;
+    border-color: rgb(191, 191, 191);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    padding-left: 20px;
+}
+
+input[type="submit"] {
+    height: 55px;
+    width: 100px;
+    border: none;
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding-left: .5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: .1em;
+    cursor: pointer;
+}
