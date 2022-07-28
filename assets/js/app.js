@@ -4,19 +4,15 @@ var inputValue = document.querySelector(".inputValue");
 var nameEl = document.querySelector("name");
 var descEL = document.querySelector(".desc");
 var tempEL = document.querySelector(".temp");
-// const apiRoot =
-//   "https://api.openweathermap.org/data/2.5/weather?q=" +
-//   inputValue.value +
-//   "&appid=41e61678a93c2b62b91deb9005bc4cd8";
 
 //DATE & TIME
 var currentDate = moment();
 $("#currentDay").text(currentDate.format("LLL"));
 
-// EVENT LISTENER ON CLICK
+// When button is clicked search for cities and weather updates
 button.addEventListener("click", searchApi);
 
-//FUNCTIONS FOR INPUT AND SEARCH (ONCLICK) BUTTON
+//LINK TO WEATHER APIs
 function searchApi(event) {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -38,6 +34,3 @@ document.querySelector("name") = data.name;
 document.querySelector(".desc") = data.weather[0];
 document.querySelector(".temp") = data.main.temp;
 
-//LINK TO WEATHER APIs
-
-// api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
