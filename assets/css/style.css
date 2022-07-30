@@ -3,7 +3,7 @@ body{
     font-family: Arial, Helvetica, sans-serif
 }
 
-input[type="text"] {
+.inputValue {
     height: 50px;
     width: 400px;
     border: solid;
@@ -15,15 +15,32 @@ input[type="text"] {
     padding-left: 20px;
 }
 
-input[type="submit"] {
+.button {
     height: 55px;
     width: 100px;
     border: none;
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(27, 27, 27);
     color: white;
     padding-left: .5em;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     letter-spacing: .1em;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(87, 87, 87);
+    transition: .5s;
+}
+
+.divCard{
+    display: flex;
+    border: solid;
+    border-width: .1em;
+    margin: 10px;
+}
+
+.pTemp {
+    font-family: Arial, Helvetica, sans-serif;
+    color:blue;
 }
