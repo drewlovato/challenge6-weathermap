@@ -1,4 +1,4 @@
-//variable for html elements
+// variable for html elements
 var button = document.querySelector(".button");
 var inputValue = document.querySelector(".inputValue");
 var nameEl = document.querySelector(".name");
@@ -10,6 +10,10 @@ var humiEl = document.querySelector(".humi");
 var uvEl = document.querySelector(".uvi");
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
+
+// variables for search history
+// var searchFromEl = document.querySelector("#from");
+// var searchHistLiEl = document.querySelector(".searchHistLi");
 
 // variables for symbols
 var perSym = "%";
@@ -83,11 +87,19 @@ function longLatApi(lat, lon, city) {
         var futureHumiVal = element.humidity;
         var futureWindVal = element.wind_speed;
         var futureDescVal = element.weather[0].description;
+        var futureIconVal = element.weather[0].icon;
+        var futureDateVal = moment()
+          .add(index + 1, "days")
+          .calendar();
 
         var cardEl = document.createElement("div");
         cardEl.classList.add("divCard");
 
-        var h1EL = document.createElement("h1");
+        // Date Element Chunk (Part of Card)
+        var futureDateEl = document.createElement("p");
+        futureDateEl.textContent = `${futureDateVal}`;
+        futureDateEl.classList.add("pDate");
+        cardEl.append(futureDateEl);
 
         // Temp Element Chunk (Part of Card)
         var temppEl = document.createElement("p");
@@ -112,6 +124,11 @@ function longLatApi(lat, lon, city) {
         descpEL.textContent = futureDescVal;
         descpEL.classList.add("pDesc");
         cardEl.append(descpEL);
+
+        var futureIconEl = document.createElement("img");
+        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
+        futureIconEl.alt = futureDescVal;
+        cardEl.append(futureIconEl);
 
         futureEl.append(cardEl);
 

@@ -38,9 +38,13 @@ body{
     border: solid;
     border-width: .1em;
     margin: 10px;
+    width: 600px;
 }
 
 .pTemp {
+    display: flex;
+
     font-family: Arial, Helvetica, sans-serif;
     color:blue;
+
 }
