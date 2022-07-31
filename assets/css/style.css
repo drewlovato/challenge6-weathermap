@@ -1,6 +1,28 @@
 
+* {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 body{
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header h1{
+    margin: 50px 0 15px 0;
+}
+
+#currentDay{
+    margin: 15px 0 15px 0;
 }
 
 .inputValue {
@@ -33,18 +55,54 @@ body{
     transition: .5s;
 }
 
+#form{
+    width: 100%;
+}
+
+.searchHistoryButton{
+    display: flex;
+    
+}
+
+footer p{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    align-items: center;
+}
+
+/* Java Script Class Callouts */
 .divCard{
     display: flex;
-    border: solid;
+    background-color: coral;
     border-width: .1em;
     margin: 10px;
-    width: 600px;
+    width: 200px;
+    height: 300px;
 }
 
 .pTemp {
     display: flex;
-
     font-family: Arial, Helvetica, sans-serif;
     color:blue;
+    height: fit-content;
+}
 
+.pHumi{
+    display: flex;
+    height: fit-content;
+}
+
+.pWind{
+    height: fit-content;
+}
+
+.pDesc{
+    height: fit-content;
 }

@@ -12,8 +12,9 @@ var uvEl = document.querySelector(".uvi");
 var futureEl = document.querySelector(".futureCard");
 
 // variables for search history
-// var searchFromEl = document.querySelector("#from");
-// var searchHistLiEl = document.querySelector(".searchHistLi");
+var searchFromEl = document.querySelector("#form");
+var searchHistLiEl = document.querySelector(".searchHistLi");
+let searchHistory = [];
 
 // variables for symbols
 var perSym = "%";
@@ -24,10 +25,27 @@ var windSym = "MPH";
 var currentDate = moment();
 $("#currentDay").text(currentDate.format("LLL"));
 
-// function 1 fetch url 1
+// event listener for function 1
 button.addEventListener("click", cityApi);
 
+function displaySearchHistory() {
+  searchHistory = JSON.parse(localStorage.getItem("search history"));
+
+  for (let index = 0; index < searchHistory.length; index++) {
+    const element = searchHistory[index];
+
+    var searchHistIndex = document.createElement("li");
+    searchHistIndex.textContent = `${element}`;
+    searchHistIndex.classList.add("searchHistoryButton");
+    searchHistLiEl.append(searchHistIndex);
+  }
+}
+
+// function 1 fetch url 1
 function cityApi(event) {
+  searchHistory.push(inputValue.value);
+  localStorage.setItem("search history", JSON.stringify(searchHistory));
+  displaySearchHistory();
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
       inputValue.value +
@@ -41,7 +59,7 @@ function cityApi(event) {
       const city = data[0].name;
       longLatApi(lat, lon, city);
     });
-  console.log("I've been clicked!");
+  // console.log("I've been clicked!");
   return;
 }
 
@@ -131,11 +149,8 @@ function longLatApi(lat, lon, city) {
         cardEl.append(futureIconEl);
 
         futureEl.append(cardEl);
-
-        console.log("you got this");
       }
-      // futureWeather();
     });
-  console.log("I've been clicked!");
+
   return;
 }
