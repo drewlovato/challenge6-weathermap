@@ -99,9 +99,9 @@ function longLatApi(lat, lon, city) {
       var humiValue = data.current.humidity;
 
       // posts current weather values to the page
-      humiEl.textContent = `hum: ${humiValue}${perSym}`;
-      tempEL.textContent = `temp: ${tempValue}${farSym}`;
-      windEL.textContent = `wind: ${windValue}${windSym}`;
+      humiEl.textContent = `${humiValue}${perSym}`;
+      tempEL.textContent = `${tempValue}${farSym}`;
+      windEL.textContent = `${windValue} ${windSym}`;
       uvEl.textContent = `uvi: ${uvValue}`;
 
       // these values are passed through first fetch function (see below)

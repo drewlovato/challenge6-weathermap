@@ -26,13 +26,13 @@ header {
 
 header h1{
     margin: 50px 0 5px 0;
-    letter-spacing: .1em;
     color: white;
     font-size: 50px;
+    font-family: 'Merriweather Sans', sans-serif;
 }
 
 #currentDay{
-    margin: 0 0 50px 0;
+    margin: 0 0 30px 0;
     color: rgb(255, 255, 255);
 }
 
@@ -49,7 +49,7 @@ header h1{
     -ms-appearance: none;
     -moz-appearance: none;
     outline: none;
-    margin: 30px 10px 30px 0;
+    margin: 30px 0 30px 0;
 }
 
 .inputValue:active {
@@ -58,11 +58,28 @@ header h1{
     border: solid;
 }
 
+.clear{
+    height: 50px;
+    width: 100px;
+    border: none;
+    background-color: rgb(255, 106, 0);
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: .1em;
+    cursor: pointer;
+}
+
+.clear:hover{
+    background-color: rgb(255, 152, 79);
+    transition: .5s;
+}
+
 .button {
     height: 50px;
     width: 100px;
     border: none;
-    background-color: rgb(16, 48, 109);
+    background-color: rgb(56, 114, 153);
     color: white;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
@@ -71,36 +88,32 @@ header h1{
 }
 
 .button:hover {
-    background-color: rgb(45, 107, 222);
+    background-color: rgb(164, 219, 255);
     color: rgb(255, 255, 255);
     transition: .5s;
 }
 
 main{
     display: flex;
-    justify-content: space-evenly;
+
 }
 
 #form{
-    width: 100%;
+    width: 50%;
 }
 
 .histButton{
-    width: 50%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 50px;
     margin: 10px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
     text-align: center;
-}
-
-.clear{
-    height: 50px;
-    width: 100px;
     border: none;
-    background-color: rgb(255, 69, 69);
+    background-color: rgb(255, 106, 0);
     color: white;
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
@@ -108,15 +121,63 @@ main{
     cursor: pointer;
 }
 
+.histButton:hover{
+    background-color: rgb(255, 152, 79);
+    transition: .5s;
+}
+
+.weather-display{
+    width: 50%;
+    height: 200px;
+    background: 
+    linear-gradient(217deg, rgba(66, 120, 212, 0.8), rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, rgba(42, 42, 110, 0.8), rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, rgba(194, 231, 238, 0.8), rgba(0,0,255,0) 70.71%);
+    background-attachment: fixed;
+    box-shadow: 10px 10px 15px rgb(111, 138, 190);
+    margin: 10px;
+    padding: 40px;
+}
+
+.name{
+    font-family: 'Merriweather Sans', sans-serif;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 2.5em;
+}
+
+.currentCard{
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.latCoord{
+    color:rgb(164, 219, 255);
+    margin-bottom: 5px;
+}
+
+.lonCoord{
+    color:rgb(164, 219, 255);
+    margin-bottom: 5px;
+}
+
+.uvi{
+    color:rgb(164, 219, 255);
+    margin-bottom: 5px;
+}
+
+
 /* START OF 5 DAY FORCAST */
 .futureCard{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 0 50px 50px 50px;
-
+    margin-bottom: 50px;
 }
-
 
 .divCard{
     display: flex;
@@ -141,10 +202,10 @@ main{
     display: flex;
 }
 
-/* Icon for Weather */
 img{
     height: 70px;
     width: 70px;
+    margin-left: 30%;
 }
 
 /* Bottom three value for weather (card) */
@@ -158,16 +219,19 @@ img{
 /*  */
 .pDate{
     font-weight: 700;
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
     letter-spacing: .05em;
     font-size: 20px;
     color: white;
 }
 
+.pDesc {
+    color:rgb(164, 219, 255);
+}
+
 footer p{
     display: flex;
     justify-content: center;
-    position: fixed;
     left: 0;
     bottom: 0;
     height: 35px;
