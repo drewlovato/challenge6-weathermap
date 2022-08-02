@@ -1,10 +1,11 @@
-
+/* RESET */
 * {
     width: 100%;
     padding: 0;
     margin: 0;
 }
 
+/* BODY FOR ENTIRE PAGE */
 body{
     font-family: 'Work Sans', sans-serif;
     width: 100%;
@@ -58,6 +59,7 @@ header h1{
     border: solid;
 }
 
+/* clear button */
 .clear{
     height: 50px;
     width: 100px;
@@ -75,6 +77,7 @@ header h1{
     transition: .5s;
 }
 
+/* search button */
 .button {
     height: 50px;
     width: 100px;
@@ -93,15 +96,16 @@ header h1{
     transition: .5s;
 }
 
+/* second row info container  */
 main{
     display: flex;
-
 }
 
 #form{
     width: 50%;
 }
 
+/* search history button */
 .histButton{
     width: 95%;
     display: flex;
@@ -126,6 +130,7 @@ main{
     transition: .5s;
 }
 
+/* current weather container */
 .weather-display{
     width: 50%;
     height: 200px;
@@ -179,6 +184,7 @@ main{
     margin-bottom: 50px;
 }
 
+/* main container for for five day */
 .divCard{
     display: flex;
     flex-direction: column;
@@ -208,7 +214,7 @@ img{
     margin-left: 30%;
 }
 
-/* Bottom three value for weather (card) */
+/* bottom three value for weather (card) */
 .divGauge{
     color: white;
     font-size: small;
@@ -216,7 +222,6 @@ img{
     display: flex;
 }
 
-/*  */
 .pDate{
     font-weight: 700;
     font-family: 'Merriweather Sans', sans-serif;
@@ -229,6 +234,7 @@ img{
     color:rgb(164, 219, 255);
 }
 
+/* START OF FOOTER */
 footer p{
     display: flex;
     justify-content: center;

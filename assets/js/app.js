@@ -33,7 +33,7 @@ clearBtn.addEventListener("click", function () {
   localStorage.clear();
 });
 
-//
+// display history button - when clicked this function display last city searched
 function displaySearchHistory() {
   searchHistory = JSON.parse(localStorage.getItem("search history")) || [];
   searchHistLiEl.innerHTML = "";
