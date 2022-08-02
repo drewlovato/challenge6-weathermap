@@ -8,6 +8,7 @@ var windEL = document.querySelector(".wind");
 var tempEL = document.querySelector(".temp");
 var humiEl = document.querySelector(".humi");
 var uvEl = document.querySelector(".uvi");
+var clearBtn = document.querySelector(".clear");
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
 
@@ -27,25 +28,38 @@ $("#currentDay").text(currentDate.format("LLL"));
 
 // event listener for function 1
 button.addEventListener("click", cityApi);
+clearBtn.addEventListener("click", function () {
+  location.assign("index.html");
+  localStorage.clear();
+});
 
+//
 function displaySearchHistory() {
-  searchHistory = JSON.parse(localStorage.getItem("search history"));
-
+  searchHistory = JSON.parse(localStorage.getItem("search history")) || [];
+  searchHistLiEl.innerHTML = "";
   for (let index = 0; index < searchHistory.length; index++) {
     const element = searchHistory[index];
-
-    var searchHistIndex = document.createElement("li");
-    searchHistIndex.textContent = `${element}`;
-    searchHistIndex.classList.add("searchHistoryButton");
-    searchHistLiEl.append(searchHistIndex);
+    const createHistButton = document.createElement("button");
+    createHistButton.classList.add("histButton");
+    createHistButton.textContent = element;
+    createHistButton.addEventListener("click", () => {
+      console.log(element);
+      inputValue.value = element;
+      cityApi();
+    });
+    searchHistLiEl.append(createHistButton);
   }
 }
 
+displaySearchHistory();
+
 // function 1 fetch url 1
-function cityApi(event) {
-  searchHistory.push(inputValue.value);
-  localStorage.setItem("search history", JSON.stringify(searchHistory));
-  displaySearchHistory();
+function cityApi() {
+  if (!searchHistory.includes(inputValue.value)) {
+    searchHistory.push(inputValue.value);
+    localStorage.setItem("search history", JSON.stringify(searchHistory));
+  }
+  // displaySearchHistory();
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
       inputValue.value +
@@ -70,6 +84,14 @@ function longLatApi(lat, lon, city) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      nameEl.innerHTML = "";
+      coordLonEl.innerHTML = "";
+      coordLatEl.innerHTML = "";
+      humiEl.innerHTML = "";
+      tempEL.innerHTML = "";
+      windEL.innerHTML = "";
+      uvEl.innerHTML = "";
+
       // variables for currently weather values
       var tempValue = data.current.temp;
       var windValue = data.current.wind_speed;
@@ -77,14 +99,14 @@ function longLatApi(lat, lon, city) {
       var humiValue = data.current.humidity;
 
       // posts current weather values to the page
-      humiEl.textContent = `humidity: ${humiValue}${perSym}`;
-      tempEL.textContent = `temperature: ${tempValue}${farSym}`;
+      humiEl.textContent = `hum: ${humiValue}${perSym}`;
+      tempEL.textContent = `temp: ${tempValue}${farSym}`;
       windEL.textContent = `wind: ${windValue}${windSym}`;
-      uvEl.textContent = `uv index: ${uvValue}`;
+      uvEl.textContent = `uvi: ${uvValue}`;
 
       // these values are passed through first fetch function (see below)
-      coordLatEl.textContent = `latitude: ${lat}`;
-      coordLonEl.textContent = `longitude: ${lon}`;
+      coordLatEl.textContent = `lat: ${lat}`;
+      coordLonEl.textContent = `long: ${lon}`;
       nameEl.textContent = city;
 
       // day1 - day5 variables
@@ -98,6 +120,8 @@ function longLatApi(lat, lon, city) {
       let futureWeather = [day1, day2, day3, day4, day5];
 
       // for loop cycles array of days
+      futureEl.innerHTML = "";
+
       for (let index = 0; index < futureWeather.length; index++) {
         const element = futureWeather[index];
         console.log(element);
@@ -108,10 +132,13 @@ function longLatApi(lat, lon, city) {
         var futureIconVal = element.weather[0].icon;
         var futureDateVal = moment()
           .add(index + 1, "days")
-          .calendar();
+          .format("LLL");
 
         var cardEl = document.createElement("div");
         cardEl.classList.add("divCard");
+
+        var gaugleEl = document.createElement("div");
+        gaugleEl.classList.add("divGauge");
 
         // Date Element Chunk (Part of Card)
         var futureDateEl = document.createElement("p");
@@ -119,23 +146,11 @@ function longLatApi(lat, lon, city) {
         futureDateEl.classList.add("pDate");
         cardEl.append(futureDateEl);
 
-        // Temp Element Chunk (Part of Card)
-        var temppEl = document.createElement("p");
-        temppEl.textContent = `temperature: ${futureTempVal}${farSym}`;
-        temppEl.classList.add("pTemp");
-        cardEl.append(temppEl);
-
-        // Humidity Element Chunk (Part of Card)
-        var humipEl = document.createElement("p");
-        humipEl.textContent = `humidity: ${futureHumiVal}${perSym}`;
-        humiEl.classList.add("pHumi");
-        cardEl.append(humipEl);
-
-        // Wind Element Chunk (Part of Card)
-        var windpEL = document.createElement("p");
-        windpEL.textContent = `wind: ${futureWindVal}${windSym}`;
-        windpEL.classList.add("pWind");
-        cardEl.append(windpEL);
+        // Weather Icon Element Chunk (Part of Card)
+        var futureIconEl = document.createElement("img");
+        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
+        futureIconEl.alt = futureDescVal;
+        cardEl.append(futureIconEl);
 
         // Description Element Chunk (Part of Card)
         var descpEL = document.createElement("p");
@@ -143,11 +158,25 @@ function longLatApi(lat, lon, city) {
         descpEL.classList.add("pDesc");
         cardEl.append(descpEL);
 
-        var futureIconEl = document.createElement("img");
-        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
-        futureIconEl.alt = futureDescVal;
-        cardEl.append(futureIconEl);
+        // Temp Element Chunk (Part of Card)
+        var temppEl = document.createElement("p");
+        temppEl.textContent = `${futureTempVal}${farSym}`;
+        temppEl.classList.add("pTemp");
+        gaugleEl.append(temppEl);
 
+        // Humidity Element Chunk (Part of Card)
+        var humipEl = document.createElement("p");
+        humipEl.textContent = `H: ${futureHumiVal}${perSym}`;
+        humiEl.classList.add("pHumi");
+        gaugleEl.append(humipEl);
+
+        // Wind Element Chunk (Part of Card)
+        var windpEL = document.createElement("p");
+        windpEL.textContent = `${futureWindVal}${windSym}`;
+        windpEL.classList.add("pWind");
+        gaugleEl.append(windpEL);
+
+        cardEl.append(gaugleEl);
         futureEl.append(cardEl);
       }
     });
