@@ -9,12 +9,15 @@ var tempEL = document.querySelector(".temp");
 var humiEl = document.querySelector(".humi");
 var uvEl = document.querySelector(".uvi");
 var clearBtn = document.querySelector(".clear");
+
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
 
 // variables for search history
 var searchFromEl = document.querySelector("#form");
 var searchHistLiEl = document.querySelector(".searchHistLi");
+let previousSearchesElement = document.querySelector("#previousSearches");
+let btnClearSearchHistory = document.querySelector("btnClearSearchHistory");
 let searchHistory = [];
 
 // variables for symbols
@@ -33,25 +36,35 @@ clearBtn.addEventListener("click", function () {
   localStorage.clear();
 });
 
-// display history button - when clicked this function display last city searched
-function displaySearchHistory() {
-  searchHistory = JSON.parse(localStorage.getItem("search history")) || [];
-  searchHistLiEl.innerHTML = "";
-  for (let index = 0; index < searchHistory.length; index++) {
-    const element = searchHistory[index];
-    const createHistButton = document.createElement("button");
-    createHistButton.classList.add("histButton");
-    createHistButton.textContent = element;
-    createHistButton.addEventListener("click", () => {
-      console.log(element);
-      inputValue.value = element;
-      cityApi();
-    });
-    searchHistLiEl.append(createHistButton);
+function saveSearch(searchText) {
+  if (previousSearch.includes(searchText)) {
+    previousSearches.splice(previousSearches.indexOf(searchText), 1);
   }
+  previousSearches.unshift(searchText);
+  localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
 }
 
-displaySearchHistory();
+// display history button - when clicked this function display last city searched
+function displayPreviousSearches() {
+  if (localStorage.getItem("previousSearches") != null) {
+    previousSearches = JSON.parse(localStorage.getItem("previousSearches"));
+
+    for (let i = 0; i < previousSearches.length; i++) {
+      const btnPreviousSearch = document.createElement("button");
+      btnPreviousSearch.classList.add("btn");
+      btnPreviousSearch.classList.add("btn-block");
+      btnPreviousSearch.classList.add("previousSearch");
+      btnPreviousSearch.textContent = previousSearches[i];
+      previousSearchesElement.append(btnPreviousSearch);
+    }
+
+    btnClearSearchHistory.classList.remove("invisible");
+    btnClearSearchHistory.classList.add("visible");
+  } else {
+    btnClearSearchHistory.classList.remove("visible");
+    btnClearSearchHistory.classList.add("invisible");
+  }
+}
 
 // function 1 fetch url 1
 function cityApi() {
@@ -179,7 +192,32 @@ function longLatApi(lat, lon, city) {
         cardEl.append(gaugleEl);
         futureEl.append(cardEl);
       }
+
+      displayPreviousSearches();
     });
 
+  function clearSearchHistory(event) {
+    event.preventDefault();
+
+    localStorage.removeItem("previousSearches");
+    previousSearches = [];
+
+    displayPreviousSearches();
+  }
+
+  btnClearSearchHistory.addEventListener("click", clearSearchHistory);
+
+  previousSearchesElement.addEventListener("click", function (event) {
+    if (event.target.classlist.contains("previousSearch")) {
+      let searchText = event.target.textContent;
+      cityAPI();
+    }
+  });
   return;
 }
+
+function init() {
+  displayPreviousSearches();
+}
+
+init();
