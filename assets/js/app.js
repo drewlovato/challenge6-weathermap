@@ -47,7 +47,7 @@ function saveSearch(searchText) {
 // display history button - when clicked this function display last city searched
 function displayPreviousSearches() {
   if (localStorage.getItem("previousSearches") != null) {
-    previousSearches = JSON.parse(localStorage.getItem("previousSearch"));
+    previousSearches = JSON.parse(localStorage.getItem("previousSearches"));
 
     for (let i = 0; i < previousSearches.length; i++) {
       const btnPreviousSearch = document.createElement("button");
@@ -193,7 +193,6 @@ function longLatApi(lat, lon, city) {
         cardEl.append(gaugleEl);
         futureEl.append(cardEl);
       }
-
       displayPreviousSearches();
     });
 
@@ -202,14 +201,12 @@ function longLatApi(lat, lon, city) {
 
     localStorage.removeItem("previousSearches");
     previousSearches = [];
-
-    displayPreviousSearches();
   }
 
   btnClearSearchHistory.addEventListener("click", clearSearchHistory);
 
   previousSearchesElement.addEventListener("click", function (event) {
-    if (event.target.classlist.contains("previousSearch")) {
+    if (event.target.classlist.contains("previousSearches")) {
       let searchText = event.target.textContent;
       cityAPI();
     }
@@ -217,9 +214,6 @@ function longLatApi(lat, lon, city) {
   return;
 }
 
-function init() {
-  displayPreviousSearches();
-  saveSearch(searchText);
-}
-
-init();
+// function init() {
+//   displayPreviousSearches();
+// }
