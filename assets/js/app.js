@@ -48,6 +48,7 @@ function saveSearch(searchText) {
 function displayPreviousSearches() {
   if (localStorage.getItem("previousSearches") != null) {
     previousSearches = JSON.parse(localStorage.getItem("previousSearches"));
+    previousSearchesElement.innerHTML = "";
 
     for (let i = 0; i < previousSearches.length; i++) {
       const btnPreviousSearch = document.createElement("button");
@@ -201,6 +202,8 @@ function longLatApi(lat, lon, city) {
 
     localStorage.removeItem("previousSearches");
     previousSearches = [];
+
+    displayPreviousSearches();
   }
 
   btnClearSearchHistory.addEventListener("click", clearSearchHistory);
@@ -208,12 +211,13 @@ function longLatApi(lat, lon, city) {
   previousSearchesElement.addEventListener("click", function (event) {
     if (event.target.classlist.contains("previousSearches")) {
       let searchText = event.target.textContent;
-      cityAPI();
+      cityAPI(searchText);
     }
   });
+
+  function init() {
+    displayPreviousSearches();
+  }
+
   return;
 }
-
-// function init() {
-//   displayPreviousSearches();
-// }
