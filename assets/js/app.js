@@ -17,7 +17,7 @@ var futureEl = document.querySelector(".futureCard");
 var searchFromEl = document.querySelector("#form");
 var searchHistLiEl = document.querySelector(".searchHistLi");
 let previousSearchesElement = document.querySelector("#previousSearches");
-let btnClearSearchHistory = document.querySelector("btnClearSearchHistory");
+let btnClearSearchHistory = document.querySelector("#btnClearSearchHistory");
 let searchHistory = [];
 
 // variables for symbols
@@ -47,7 +47,7 @@ function saveSearch(searchText) {
 // display history button - when clicked this function display last city searched
 function displayPreviousSearches() {
   if (localStorage.getItem("previousSearches") != null) {
-    previousSearches = JSON.parse(localStorage.getItem("previousSearches"));
+    previousSearches = JSON.parse(localStorage.getItem("previousSearch"));
 
     for (let i = 0; i < previousSearches.length; i++) {
       const btnPreviousSearch = document.createElement("button");
@@ -70,8 +70,9 @@ function displayPreviousSearches() {
 function cityApi() {
   if (!searchHistory.includes(inputValue.value)) {
     searchHistory.push(inputValue.value);
-    localStorage.setItem("search history", JSON.stringify(searchHistory));
+    localStorage.setItem("previousSearches", JSON.stringify(searchHistory));
   }
+
   // displaySearchHistory();
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -218,6 +219,7 @@ function longLatApi(lat, lon, city) {
 
 function init() {
   displayPreviousSearches();
+  saveSearch(searchText);
 }
 
 init();
