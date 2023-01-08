@@ -208,16 +208,30 @@ function longLatApi(lat, lon, city) {
 
   btnClearSearchHistory.addEventListener("click", clearSearchHistory);
 
+  // function grabPreviousSearch(event) {
+  //   event.classList.contains("previousSearch");
+  // }
+
+  // previousSearchesElement.addEventListener("click", function (event) {
+  //   grabPreviousSearch();
+  //   let searchText = event.target.textContent;
+  //   console.log(searchText);
+  //   cityApi(searchText);
+  // });
+
   previousSearchesElement.addEventListener("click", function (event) {
-    if (event.target.classlist.contains("previousSearches")) {
+    if (event.target.classList.contains("previousSearch")) {
       let searchText = event.target.textContent;
-      cityAPI(searchText);
+      cityApi(searchText);
+      console.log(searchText);
     }
   });
 
   function init() {
     displayPreviousSearches();
   }
+
+  init();
 
   return;
 }
