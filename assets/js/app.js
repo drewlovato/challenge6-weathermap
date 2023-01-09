@@ -83,7 +83,7 @@ function cityApi(searchText) {
   // displaySearchHistory();
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
-      inputValue.value +
+      searchText +
       "&appid=3f3600732e8599f586337a5c93fffe3d"
   )
     .then((response) => response.json())
