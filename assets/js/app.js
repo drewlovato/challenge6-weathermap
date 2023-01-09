@@ -65,6 +65,7 @@ function displayPreviousSearches() {
     btnClearSearchHistory.classList.remove("visible");
     btnClearSearchHistory.classList.add("invisible");
   }
+  document.querySelector(".weather-display").classList.remove("hide");
 }
 
 // function 1 fetch url 1

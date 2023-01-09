@@ -245,3 +245,7 @@ footer p{
     align-items: center;
     font-size: .5em;
 }
+
+.hide{
+    display: none;
+}
