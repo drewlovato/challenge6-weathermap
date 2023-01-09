@@ -68,10 +68,16 @@ function displayPreviousSearches() {
 }
 
 // function 1 fetch url 1
-function cityApi() {
+function cityApi(searchText) {
   if (!searchHistory.includes(inputValue.value)) {
     searchHistory.push(inputValue.value);
     localStorage.setItem("previousSearches", JSON.stringify(searchHistory));
+  }
+
+  if (inputValue.value) {
+    console.log("hi");
+    searchText = inputValue.value;
+    inputValue.value = "";
   }
 
   // displaySearchHistory();
