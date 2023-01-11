@@ -9,13 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
 
@@ -29,45 +23,44 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/scss/allStyles.css" />
     <title>Document</title>
   </head>
   <body>
     <!-- TITLE -->
     <header>
-      <h1>Worldwide Weather</h1>
+      <h1>the WeatherApp</h1>
+
       <p id="currentDay"></p>
 
       <!-- SEARCH BAR -->
       <div class="input">
         <input type="text" value="" class="inputValue" />
-        <input type="submit" value="search" class="button" />
+        <button type="submit" value="search" class="button">search</button>
         <button class="clear">clear</button>
       </div>
     </header>
 
     <main>
-      <!-- SEARCH HISTORY -->
-      <section id="form">
-        <ul class="searchHistLi"></ul>
-        <div id="previousSearches" class="form-group"></div>
-
-        <!-- <button id="btnClearSearchHistory" class="invisible">
-          Clear Search History
-        </button> -->
-      </section>
-
       <!-- CURRENT WEATHER -->
-      <div class="weather-display hide">
-        <h1 class="name"></h1>
+      <div class="weather-display hidden">
         <div class="currentCard">
-          <p class="temp"></p>
-          <p class="humi"></p>
-          <p class="wind"></p>
+          <div class="currentCardMain">
+            <h1 class="name"></h1>
+            <p class="temp"></p>
+            <p class="humi"></p>
+            <p class="wind"></p>
+          </div>
+          <div class="currentCardSub">
+            <p class="latCoord"></p>
+            <p class="lonCoord"></p>
+            <p class="uvi"></p>
+          </div>
         </div>
-        <p class="latCoord"></p>
-        <p class="lonCoord"></p>
-        <p class="uvi"></p>
+        <section id="form">
+          <ul class="searchHistLi"></ul>
+          <div id="previousSearches" class="form-group"></div>
+        </section>
       </div>
     </main>
 

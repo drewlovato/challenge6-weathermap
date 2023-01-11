@@ -1,0 +1,261 @@
+/* RESET */
+* {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* BODY FOR ENTIRE PAGE */
+body {
+  font-family: "Work Sans", sans-serif;
+  max-width: 100%;
+  height: 100%;
+  background-color: white;
+  background-attachment: fixed;
+}
+
+/* START OF HEADER */
+header {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  max-width: 100%;
+}
+header h1 {
+  color: rgb(8, 202, 224);
+  font-size: 50px;
+  font-family: "Sofia Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+header #currentDay {
+  display: flex;
+  justify-content: center;
+  color: rgb(200, 200, 200);
+  margin-bottom: 1rem;
+}
+header .input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* clear button */
+  /* search button */
+}
+header .input .inputValue {
+  height: 3rem;
+  width: 20rem;
+  border: none;
+  font-weight: bold;
+  font-family: "Work Sans", sans-serif;
+  background-color: rgb(191, 191, 191);
+  color: white;
+  padding-left: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+header .input .inputValue:active {
+  border-radius: 0;
+  border-color: blue;
+  border: solid;
+}
+header .input .clear {
+  height: 3rem;
+  width: 7rem;
+  border: none;
+  position: relative;
+  background-color: rgb(255, 106, 0);
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-weight: bold;
+  z-index: 1;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+header .input .clear::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgb(233, 74, 74);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-in-out;
+}
+header .input .clear:hover::before, header .input .clear:focus::before {
+  transform: scaleX(1);
+}
+header .input .button {
+  height: 3rem;
+  width: 7rem;
+  margin: 0.5rem;
+  border: none;
+  position: relative;
+  background-color: rgb(56, 114, 153);
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  z-index: 1;
+  cursor: pointer;
+}
+header .input .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: aqua;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-in-out;
+}
+header .input .button:hover::before, header .input .button:focus::before {
+  transform: scaleX(1);
+}
+
+/* second row info container  */
+main {
+  display: flex;
+  /* search history button */
+  /* current weather container */
+  /* START OF 5 DAY FORCAST */
+}
+main #form {
+  width: 50%;
+}
+main .histButton {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  margin: 10px;
+  /* margin-left: 50px; */
+  text-align: center;
+  border: none;
+  background-color: rgb(255, 106, 0);
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+main .histButton:hover {
+  background-color: rgb(255, 152, 79);
+  transition: 0.5s;
+}
+main .weather-display {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(217deg, rgba(66, 120, 212, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(42, 42, 110, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(194, 231, 238, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  background-attachment: fixed;
+  box-shadow: 10px 10px 15px rgb(111, 138, 190);
+  margin: 10px;
+  padding: 40px;
+  display: flex;
+}
+main .name {
+  font-family: "Merriweather Sans", sans-serif;
+  color: white;
+  margin-bottom: 15px;
+  font-size: 2.5em;
+}
+main .currentCard {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  display: flex;
+  font-family: "Merriweather Sans", sans-serif;
+}
+main .latCoord {
+  color: rgb(164, 219, 255);
+  margin-bottom: 5px;
+}
+main .lonCoord {
+  color: rgb(164, 219, 255);
+  margin-bottom: 5px;
+}
+main .uvi {
+  color: rgb(164, 219, 255);
+  margin-bottom: 5px;
+}
+main .futureCard {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+/* main container for for five day */
+.divCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  background: linear-gradient(217deg, rgba(66, 120, 212, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(42, 42, 110, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(194, 231, 238, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  background-attachment: fixed;
+  border-width: 0.1em;
+  margin: 10px;
+  width: 250px;
+  height: 275px;
+  padding: 30px;
+  font-family: "Work Sans", sans-serif;
+  box-shadow: 10px 10px 15px rgb(111, 138, 190);
+}
+
+.divReadings {
+  display: flex;
+}
+
+img {
+  height: 70px;
+  width: 70px;
+  margin-left: 30%;
+}
+
+/* bottom three value for weather (card) */
+.divGauge {
+  color: white;
+  font-size: small;
+  font-weight: 400;
+  display: flex;
+}
+
+.pDate {
+  font-weight: 700;
+  font-family: "Merriweather Sans", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 20px;
+  color: white;
+}
+
+.pDesc {
+  color: rgb(164, 219, 255);
+}
+
+/* START OF FOOTER */
+footer p {
+  display: flex;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  height: 35px;
+  color: white;
+  align-items: center;
+  font-size: 0.5em;
+}
+
+.hide {
+  display: none;
+}/*# sourceMappingURL=allStyles.css.map */

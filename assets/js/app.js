@@ -65,7 +65,6 @@ function displayPreviousSearches() {
     btnClearSearchHistory.classList.remove("visible");
     btnClearSearchHistory.classList.add("invisible");
   }
-  document.querySelector(".weather-display").classList.remove("hide");
 }
 
 // function 1 fetch url 1
@@ -80,6 +79,8 @@ function cityApi(searchText) {
     searchText = inputValue.value;
     inputValue.value = "";
   }
+
+  document.querySelector(".weather-display").classList.remove("hide");
 
   // displaySearchHistory();
   fetch(
@@ -213,7 +214,7 @@ function longLatApi(lat, lon, city) {
     displayPreviousSearches();
   }
 
-  btnClearSearchHistory.addEventListener("click", clearSearchHistory);
+  // btnClearSearchHistory.addEventListener("click", clearSearchHistory);
 
   // function grabPreviousSearch(event) {
   //   event.classList.contains("previousSearch");
