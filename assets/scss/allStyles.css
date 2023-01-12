@@ -1,6 +1,6 @@
 /* RESET */
 * {
-  width: 100%;
+  max-width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -29,17 +29,20 @@ header h1 {
   justify-content: center;
   margin-bottom: 1rem;
   font-weight: 600;
+  max-width: 100%;
 }
 header #currentDay {
   display: flex;
   justify-content: center;
   color: rgb(200, 200, 200);
   margin-bottom: 1rem;
+  max-width: 100%;
 }
 header .input {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
   /* clear button */
   /* search button */
 }
@@ -128,7 +131,6 @@ main {
   display: flex;
   /* search history button */
   /* current weather container */
-  /* START OF 5 DAY FORCAST */
 }
 main #form {
   width: 50%;
@@ -190,7 +192,9 @@ main .uvi {
   color: rgb(164, 219, 255);
   margin-bottom: 5px;
 }
-main .futureCard {
+
+/* START OF 5 DAY FORCAST */
+.futureCard {
   display: flex;
   justify-content: center;
   width: 100%;

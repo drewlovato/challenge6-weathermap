@@ -80,7 +80,7 @@ function cityApi(searchText) {
     inputValue.value = "";
   }
 
-  document.querySelector(".weather-display").classList.remove("hide");
+  document.querySelector(".weather-display").classList.remove("hidden");
 
   // displaySearchHistory();
   fetch(
