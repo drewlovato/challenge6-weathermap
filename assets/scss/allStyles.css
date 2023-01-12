@@ -219,7 +219,7 @@ main .uvi {
 }
 
 .divReadings {
-  display: flex;
+  display: flex !important;
 }
 
 img {
