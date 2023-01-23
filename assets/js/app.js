@@ -67,6 +67,16 @@ function displayPreviousSearches() {
   }
 }
 
+function moveHeaderSearch() {
+  document.getElementById("mainHeader").style.top = "-.75rem";
+  document.getElementById("mainHeader").style.transition = "400ms ease-in-out";
+}
+
+function moveHeaderClear() {
+  document.getElementById("mainHeader").style.top = "0";
+  document.getElementById("mainHeader").style.transition = "300ms ease-in-out";
+}
+
 // function 1 fetch url 1
 function cityApi(searchText) {
   if (!searchHistory.includes(inputValue.value)) {
@@ -80,7 +90,7 @@ function cityApi(searchText) {
     inputValue.value = "";
   }
 
-  document.querySelector(".weather-display").classList.remove(".hide");
+  document.querySelector(".weather-display").classList.remove("hide");
 
   // displaySearchHistory();
   fetch(
@@ -156,6 +166,10 @@ function longLatApi(lat, lon, city) {
         var futureDateVal = moment()
           .add(index + 1, "days")
           .format("LLL");
+
+        var futureIconEl = document.createElement("main-weather-icon");
+        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
+        futureIconEl.alt = futureDescVal;
 
         var cardEl = document.createElement("div");
         cardEl.classList.add("divCard");

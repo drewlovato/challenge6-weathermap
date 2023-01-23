@@ -28,16 +28,28 @@
   </head>
   <body>
     <!-- TITLE -->
-    <header>
+    <header id="mainHeader">
       <h1>the WeatherApp</h1>
 
       <p id="currentDay"></p>
 
       <!-- SEARCH BAR -->
       <div class="input">
-        <input type="text" value="" class="inputValue" />
-        <button type="submit" value="search" class="button">search</button>
-        <button class="clear">clear</button>
+        <input
+          type="text"
+          value=""
+          class="inputValue"
+          placeholder="Search Your City"
+        />
+        <button
+          type="submit"
+          value="search"
+          onclick="moveHeaderSearch()"
+          class="button"
+        >
+          search
+        </button>
+        <button onclick="moveHeaderClear()" class="clear">clear</button>
       </div>
     </header>
 
@@ -47,9 +59,11 @@
         <div class="currentCard">
           <div class="currentCardMain">
             <h1 class="name"></h1>
-            <p class="temp"></p>
-            <p class="humi"></p>
-            <p class="wind"></p>
+            <div class="currentCardMainSub">
+              <p class="temp"></p>
+              <p class="humi"></p>
+              <p class="wind"></p>
+            </div>
           </div>
           <div class="currentCardSub">
             <p class="latCoord"></p>
@@ -68,9 +82,9 @@
     <div class="futureCard"></div>
 
     <!-- FOOTER -->
-    <footer>
+    <!-- <footer>
       <p>weather application copyright 2022</p>
-    </footer>
+    </footer> -->
 
     <!--SCRIPT TAGS-->
     <script src="./assets/js/app.js"></script>
