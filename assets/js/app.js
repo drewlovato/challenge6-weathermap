@@ -17,7 +17,7 @@ var futureEl = document.querySelector(".futureCard");
 var searchFromEl = document.querySelector("#form");
 var searchHistLiEl = document.querySelector(".searchHistLi");
 let previousSearchesElement = document.querySelector("#previousSearches");
-let btnClearSearchHistory = document.querySelector("#btnClearSearchHistory");
+// let btnClearSearchHistory = document.querySelector("#btnClearSearchHistory");
 let searchHistory = [];
 
 // variables for symbols
@@ -58,12 +58,6 @@ function displayPreviousSearches() {
       btnPreviousSearch.textContent = previousSearches[i];
       previousSearchesElement.append(btnPreviousSearch);
     }
-
-    btnClearSearchHistory.classList.remove("invisible");
-    btnClearSearchHistory.classList.add("visible");
-  } else {
-    btnClearSearchHistory.classList.remove("visible");
-    btnClearSearchHistory.classList.add("invisible");
   }
 }
 
@@ -168,7 +162,7 @@ function longLatApi(lat, lon, city) {
           .format("LLL");
 
         var futureIconEl = document.createElement("main-weather-icon");
-        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
+        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@4x.png`;
         futureIconEl.alt = futureDescVal;
 
         var cardEl = document.createElement("div");
@@ -185,9 +179,14 @@ function longLatApi(lat, lon, city) {
 
         // Weather Icon Element Chunk (Part of Card)
         var futureIconEl = document.createElement("img");
-        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
+        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@2x.png`;
         futureIconEl.alt = futureDescVal;
         cardEl.append(futureIconEl);
+
+        var topWeatherIcon = document.createElement("img");
+        topWeatherIcon.classList.add("top-weather-icon");
+        topWeatherIcon.src = `https://openweathermap.org/img/wn/${futureIconVal}@4x.png`;
+        topWeatherIcon.textContent = `${topWeatherIcon}`;
 
         // Description Element Chunk (Part of Card)
         var descpEL = document.createElement("p");
@@ -218,28 +217,6 @@ function longLatApi(lat, lon, city) {
       }
       displayPreviousSearches();
     });
-
-  function clearSearchHistory(event) {
-    event.preventDefault();
-
-    localStorage.removeItem("previousSearches");
-    previousSearches = [];
-
-    displayPreviousSearches();
-  }
-
-  // btnClearSearchHistory.addEventListener("click", clearSearchHistory);
-
-  // function grabPreviousSearch(event) {
-  //   event.classList.contains("previousSearch");
-  // }
-
-  // previousSearchesElement.addEventListener("click", function (event) {
-  //   grabPreviousSearch();
-  //   let searchText = event.target.textContent;
-  //   console.log(searchText);
-  //   cityApi(searchText);
-  // });
 
   previousSearchesElement.addEventListener("click", function (event) {
     if (event.target.classList.contains("previousSearch")) {

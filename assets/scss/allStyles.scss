@@ -146,7 +146,7 @@ main {
     .previousSearch {
       height: 3rem;
       width: 100%;
-      margin: 0.5rem;
+      padding: 0.5rem;
       border: none;
       position: relative;
       background-color: rgb(0, 149, 255);
@@ -167,29 +167,29 @@ main {
   }
 
   /* search history button */
-  .histButton {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    margin: 10px;
-    /* margin-left: 50px; */
-    text-align: center;
-    border: none;
-    background-color: rgb(255, 106, 0);
-    color: white;
-    font-family: "Work Sans", sans-serif;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-  }
+  // .histButton {
+  //   width: 95%;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  //   height: 50px;
+  //   margin: 10px;
+  //   /* margin-left: 50px; */
+  //   text-align: center;
+  //   border: none;
+  //   background-color: rgb(255, 106, 0);
+  //   color: white;
+  //   font-family: "Work Sans", sans-serif;
+  //   font-weight: bold;
+  //   letter-spacing: 0.1em;
+  //   cursor: pointer;
+  // }
 
-  .histButton:hover {
-    background-color: rgb(255, 152, 79);
-    transition: 0.5s;
-  }
+  // .histButton:hover {
+  //   background-color: rgb(255, 152, 79);
+  //   transition: 0.5s;
+  // }
 
   /* current weather container */
   .weather-display {
@@ -201,28 +201,28 @@ main {
     box-shadow: 10px 10px 15px rgb(111, 138, 190);
     margin: 10px;
     padding: 40px;
-    display: flex;
     border-radius: 1rem;
 
     .currentCard {
       color: rgb(0, 149, 255);
       width: 100%;
-      margin-bottom: 15px;
       font-size: 1.5em;
-      display: flex;
+      display: block;
+      align-content: center;
+      justify-content: center;
       font-family: "Merriweather Sans", sans-serif;
 
       .currentCardMain {
-        width: 50%;
+        max-width: 50%;
         display: flex;
         flex-direction: column;
-        margin: 2rem;
+        padding: 2rem;
 
         .name {
           font-family: "Merriweather Sans", sans-serif;
           color: rgb(0, 149, 255);
           margin-bottom: 1rem;
-          font-size: 5rem;
+          font-size: 6rem;
         }
 
         .currentCardMainSub {
@@ -232,26 +232,22 @@ main {
 
           p {
             color: rgb(249, 96, 40);
+            font-size: 1rem;
           }
         }
       }
 
       .currentCardSub {
         width: 50%;
+        display: block;
+        justify-content: center;
+        align-content: space-between;
+        font-family: "Merriweather Sans", sans-serif;
+        padding: 2rem;
 
-        .latCoord {
+        p {
           color: rgb(208, 208, 208);
-          margin-bottom: 5px;
-        }
-
-        .lonCoord {
-          color: rgb(208, 208, 208);
-          margin-bottom: 5px;
-        }
-
-        .uvi {
-          color: rgb(208, 208, 208);
-          margin-bottom: 5px;
+          margin-bottom: 1rem;
         }
       }
     }
