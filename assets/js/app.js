@@ -10,6 +10,8 @@ var humiEl = document.querySelector(".humi");
 var uvEl = document.querySelector(".uvi");
 var clearBtn = document.querySelector(".clear");
 
+var topWeatherIcon = document.querySelector(".current-weather-icon");
+
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
 
@@ -86,7 +88,6 @@ function cityApi(searchText) {
 
   document.querySelector(".weather-display").classList.remove("hide");
 
-  // displaySearchHistory();
   fetch(
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
       searchText +
