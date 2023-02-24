@@ -136,12 +136,81 @@ header {
   }
 }
 
-/* second row info container  */
+// main container
 main {
   display: flex;
 
+  /* current weather container */
+  .weather-display {
+    width: 100%;
+    height: 200px;
+    background: white;
+    background-attachment: fixed;
+    border: solid rgb(0, 149, 255) 0.25rem;
+    box-shadow: 10px 10px 15px rgb(111, 138, 190);
+    margin: 10px;
+    padding: 40px;
+    border-radius: 1rem;
+    display: flex;
+
+    .currentCard {
+      color: rgb(0, 149, 255);
+      width: 75%;
+      font-size: 1.5em;
+      font-family: "Merriweather Sans", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      .current-weather-icon {
+        max-width: 100px;
+        margin: 0;
+      }
+
+      .currentCardMain {
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+
+        .name {
+          font-family: "Merriweather Sans", sans-serif;
+          color: rgb(0, 149, 255);
+          font-size: 6rem;
+        }
+
+        // displays temp humidity and wind
+        .currentCardMainSub {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin: 0.75rem;
+
+          p {
+            color: rgb(249, 96, 40);
+            font-size: 1rem;
+          }
+        }
+
+        // displays latitude longitude and uvi
+        .currentCardSecondSub {
+          width: 50%;
+          display: flex;
+          margin: 0.75rem;
+          font-size: 1rem;
+          font-family: "Merriweather Sans", sans-serif;
+
+          p {
+            color: rgb(208, 208, 208);
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+
   #form {
-    width: 50%;
+    max-width: 25%;
 
     .previousSearch {
       height: 3rem;
@@ -162,93 +231,6 @@ main {
         color: rgb(77, 160, 215);
         background-color: white;
         transition: 0.5s;
-      }
-    }
-  }
-
-  /* search history button */
-  // .histButton {
-  //   width: 95%;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  //   height: 50px;
-  //   margin: 10px;
-  //   /* margin-left: 50px; */
-  //   text-align: center;
-  //   border: none;
-  //   background-color: rgb(255, 106, 0);
-  //   color: white;
-  //   font-family: "Work Sans", sans-serif;
-  //   font-weight: bold;
-  //   letter-spacing: 0.1em;
-  //   cursor: pointer;
-  // }
-
-  // .histButton:hover {
-  //   background-color: rgb(255, 152, 79);
-  //   transition: 0.5s;
-  // }
-
-  /* current weather container */
-  .weather-display {
-    width: 100%;
-    height: 200px;
-    background: white;
-    background-attachment: fixed;
-    border: solid rgb(0, 149, 255) 0.25rem;
-    box-shadow: 10px 10px 15px rgb(111, 138, 190);
-    margin: 10px;
-    padding: 40px;
-    border-radius: 1rem;
-
-    .currentCard {
-      color: rgb(0, 149, 255);
-      width: 100%;
-      font-size: 1.5em;
-      display: block;
-      align-content: center;
-      justify-content: center;
-      font-family: "Merriweather Sans", sans-serif;
-
-      .currentCardMain {
-        max-width: 50%;
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-
-        .name {
-          font-family: "Merriweather Sans", sans-serif;
-          color: rgb(0, 149, 255);
-          margin-bottom: 1rem;
-          font-size: 6rem;
-        }
-
-        .currentCardMainSub {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-
-          p {
-            color: rgb(249, 96, 40);
-            font-size: 1rem;
-          }
-        }
-      }
-
-      .currentCardSub {
-        width: 50%;
-        display: block;
-        justify-content: center;
-        align-content: space-between;
-        font-family: "Merriweather Sans", sans-serif;
-        padding: 2rem;
-
-        p {
-          color: rgb(208, 208, 208);
-          margin-bottom: 1rem;
-        }
       }
     }
   }

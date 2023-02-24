@@ -68,9 +68,6 @@ header .input .inputValue {
 header .input .inputValue::-moz-placeholder {
   color: white;
 }
-header .input .inputValue:-ms-input-placeholder {
-  color: white;
-}
 header .input .inputValue::placeholder {
   color: white;
 }
@@ -127,14 +124,69 @@ header .input .button:hover {
   transition: 0.5s;
 }
 
-/* second row info container  */
 main {
   display: flex;
-  /* search history button */
   /* current weather container */
 }
-main #form {
+main .weather-display {
+  width: 100%;
+  height: 200px;
+  background: white;
+  background-attachment: fixed;
+  border: solid rgb(0, 149, 255) 0.25rem;
+  box-shadow: 10px 10px 15px rgb(111, 138, 190);
+  margin: 10px;
+  padding: 40px;
+  border-radius: 1rem;
+  display: flex;
+}
+main .weather-display .currentCard {
+  color: rgb(0, 149, 255);
+  width: 75%;
+  font-size: 1.5em;
+  font-family: "Merriweather Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+main .weather-display .currentCard .current-weather-icon {
+  max-width: 100px;
+  margin: 0;
+}
+main .weather-display .currentCard .currentCardMain {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+main .weather-display .currentCard .currentCardMain .name {
+  font-family: "Merriweather Sans", sans-serif;
+  color: rgb(0, 149, 255);
+  font-size: 6rem;
+}
+main .weather-display .currentCard .currentCardMain .currentCardMainSub {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0.75rem;
+}
+main .weather-display .currentCard .currentCardMain .currentCardMainSub p {
+  color: rgb(249, 96, 40);
+  font-size: 1rem;
+}
+main .weather-display .currentCard .currentCardMain .currentCardSecondSub {
   width: 50%;
+  display: flex;
+  margin: 0.75rem;
+  font-size: 1rem;
+  font-family: "Merriweather Sans", sans-serif;
+}
+main .weather-display .currentCard .currentCardMain .currentCardSecondSub p {
+  color: rgb(208, 208, 208);
+  margin-bottom: 1rem;
+}
+main #form {
+  max-width: 25%;
 }
 main #form .previousSearch {
   height: 3rem;
@@ -155,60 +207,6 @@ main #form .previousSearch:hover {
   color: rgb(77, 160, 215);
   background-color: white;
   transition: 0.5s;
-}
-main .weather-display {
-  width: 100%;
-  height: 200px;
-  background: white;
-  background-attachment: fixed;
-  border: solid rgb(0, 149, 255) 0.25rem;
-  box-shadow: 10px 10px 15px rgb(111, 138, 190);
-  margin: 10px;
-  padding: 40px;
-  display: flex;
-  border-radius: 1rem;
-}
-main .weather-display .currentCard {
-  color: rgb(0, 149, 255);
-  width: 100%;
-  font-size: 1.5em;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  font-family: "Merriweather Sans", sans-serif;
-}
-main .weather-display .currentCard .currentCardMain {
-  max-width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-}
-main .weather-display .currentCard .currentCardMain .name {
-  font-family: "Merriweather Sans", sans-serif;
-  color: rgb(0, 149, 255);
-  margin-bottom: 1rem;
-  font-size: 6rem;
-}
-main .weather-display .currentCard .currentCardMain .currentCardMainSub {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-main .weather-display .currentCard .currentCardMain .currentCardMainSub p {
-  color: rgb(249, 96, 40);
-  font-size: 1rem;
-}
-main .weather-display .currentCard .currentCardSub {
-  width: 50%;
-  display: block;
-  justify-content: center;
-  align-content: space-between;
-  font-family: "Merriweather Sans", sans-serif;
-  padding: 2rem;
-}
-main .weather-display .currentCard .currentCardSub p {
-  color: rgb(208, 208, 208);
-  margin-bottom: 1rem;
 }
 
 /* START OF 5 DAY FORCAST */

@@ -125,7 +125,6 @@ function longLatApi(lat, lon, city) {
       var windValue = data.current.wind_speed;
       var uvValue = data.current.uvi;
       var humiValue = data.current.humidity;
-      // var futureIconVal = element.weather[0].icon;
 
       // posts current weather values to the page
       humiEl.textContent = `${humiValue}${perSym}`;
@@ -138,10 +137,10 @@ function longLatApi(lat, lon, city) {
       coordLonEl.textContent = `long: ${lon}`;
       nameEl.textContent = city;
 
-      var topWeatherIcon = document.createElement("img");
-      topWeatherIcon.classList.add("current-weather-icon");
-      topWeatherIcon.src = `https://openweathermap.org/img/wn/${futureIconVal}@4x.png`;
-      topWeatherIcon.textContent = `${topWeatherIcon}`;
+      // var topWeatherIcon = document.createElement("img");
+      // topWeatherIcon.classList.add("current-weather-icon");
+      topWeatherIcon.src = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`;
+      topWeatherIcon.textContent = `${data.current.weather[0].main}`;
 
       // day1 - day5 variables
       var day1 = data.daily[1];
@@ -172,6 +171,12 @@ function longLatApi(lat, lon, city) {
         // futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@4x.png`;
         // futureIconEl.alt = futureDescVal;
 
+        // var topWeatherIcon = document.createElement("img");
+        // topWeatherIcon.classList.add("current-weather-icon");
+        // topWeatherIcon.src = `https://openweathermap.org/img/wn/${futureIconVal}.png`;
+        // topWeatherIcon.textContent = `${topWeatherIcon}`;
+        // console.log(futureIconVal);
+
         var cardEl = document.createElement("div");
         cardEl.classList.add("divCard");
 
@@ -189,11 +194,6 @@ function longLatApi(lat, lon, city) {
         futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@2x.png`;
         futureIconEl.alt = futureDescVal;
         cardEl.append(futureIconEl);
-
-        // var topWeatherIcon = document.createElement("img");
-        // topWeatherIcon.classList.add("top-weather-icon");
-        // topWeatherIcon.src = `https://openweathermap.org/img/wn/${futureIconVal}@4x.png`;
-        // topWeatherIcon.textContent = `${topWeatherIcon}`;
 
         // Description Element Chunk (Part of Card)
         var descpEL = document.createElement("p");
