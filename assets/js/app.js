@@ -11,6 +11,7 @@ var uvEl = document.querySelector(".uvi");
 var clearBtn = document.querySelector(".clear");
 
 var topWeatherIcon = document.querySelector(".current-weather-icon");
+var topWeatherDesc = document.querySelector(".current-weather-desc");
 
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
@@ -141,6 +142,8 @@ function longLatApi(lat, lon, city) {
       // topWeatherIcon.classList.add("current-weather-icon");
       topWeatherIcon.src = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`;
       topWeatherIcon.textContent = `${data.current.weather[0].main}`;
+      topWeatherDesc.src = `https://openweathermap.org/img/wn/${data.current.weather[0].description}.png`;
+      topWeatherDesc.textContent = `${data.current.weather[0].main}`;
 
       // day1 - day5 variables
       var day1 = data.daily[1];

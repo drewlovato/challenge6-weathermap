@@ -118,7 +118,7 @@ header {
       margin: 0.5rem;
       border: none;
       position: relative;
-      background-color: rgb(0, 149, 255);
+      background-color: rgb(62, 62, 62);
       color: white;
       font-family: "Work Sans", sans-serif;
       font-weight: bold;
@@ -149,7 +149,7 @@ main {
     border: solid rgb(0, 149, 255) 0.25rem;
     box-shadow: 10px 10px 15px rgb(111, 138, 190);
     margin: 10px;
-    padding: 40px;
+    padding: 2rem;
     border-radius: 1rem;
     display: flex;
 
@@ -162,16 +162,8 @@ main {
       align-items: center;
       justify-content: space-around;
 
-      .current-weather-icon {
-        max-width: 100px;
-        margin: 0;
-      }
-
-      .currentCardMain {
-        max-width: 50%;
+      .currentHeader {
         display: flex;
-        flex-direction: column;
-        padding: 2rem;
 
         .name {
           font-family: "Merriweather Sans", sans-serif;
@@ -179,58 +171,81 @@ main {
           font-size: 6rem;
         }
 
-        // displays temp humidity and wind
-        .currentCardMainSub {
+        .currentHeaderImagery {
           display: flex;
-          flex-direction: row;
-          width: 100%;
-          margin: 0.75rem;
+          flex-direction: column;
+          margin-right: 2rem;
 
-          p {
-            color: rgb(249, 96, 40);
+          .current-weather-icon {
+            max-width: 100px;
+            margin: 0;
+          }
+
+          .current-weather-desc {
+            max-width: 100%;
+            margin: 0;
             font-size: 1rem;
+            text-align: center;
           }
         }
+      }
 
-        // displays latitude longitude and uvi
-        .currentCardSecondSub {
-          width: 50%;
-          display: flex;
-          margin: 0.75rem;
+      // displays temp humidity and wind
+      .currentCardMainSub {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0.75rem 0 2rem 0;
+
+        p {
+          color: rgb(249, 96, 40);
           font-size: 1rem;
-          font-family: "Merriweather Sans", sans-serif;
+        }
+      }
 
-          p {
-            color: rgb(208, 208, 208);
-            margin-bottom: 1rem;
-          }
+      // displays latitude longitude and uvi
+      .currentCardSecondSub {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        font-family: "Merriweather Sans", sans-serif;
+
+        p {
+          color: rgb(208, 208, 208);
+          display: flex;
         }
       }
     }
   }
 
   #form {
-    max-width: 25%;
+    width: 25%;
 
-    .previousSearch {
-      height: 3rem;
+    #previousSearches {
       width: 100%;
-      padding: 0.5rem;
-      border: none;
-      position: relative;
-      background-color: rgb(0, 149, 255);
-      color: white;
-      font-family: "Work Sans", sans-serif;
-      font-weight: bold;
-      letter-spacing: 0.1em;
-      z-index: 1;
-      cursor: pointer;
 
-      &:hover {
-        border: solid 0.1rem rgb(77, 160, 215);
-        color: rgb(77, 160, 215);
-        background-color: white;
-        transition: 0.5s;
+      button {
+        width: 100%;
+        height: 3rem;
+        padding: 0.5rem;
+        margin-bottom: 5%;
+        border: none;
+        position: relative;
+        background-color: rgb(0, 149, 255);
+        color: white;
+        font-family: "Work Sans", sans-serif;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        z-index: 1;
+        cursor: pointer;
+
+        &:hover {
+          border: solid 0.1rem rgb(77, 160, 215);
+          color: rgb(77, 160, 215);
+          background-color: white;
+          transition: 0.5s;
+        }
       }
     }
   }
