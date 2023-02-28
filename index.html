@@ -13,6 +13,9 @@
       rel="stylesheet"
     />
 
+    <!-- MAPBOX GL JS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+
     <!--MOMENT.JS-->
     <script src="./assets/lib/moment/moment-with-locales.js"></script>
 
@@ -24,6 +27,7 @@
     ></script>
 
     <link rel="stylesheet" href="./assets/scss/allStyles.css" />
+
     <title>Document</title>
   </head>
   <body>
@@ -56,8 +60,8 @@
     <main>
       <!-- CURRENT WEATHER -->
       <div class="weather-display hide">
+
         <div class="currentCard">
-          <div class="currentCardMain">
             <div class="currentHeader">
               <div class="currentHeaderImagery">
                 <img class="current-weather-icon">
@@ -75,8 +79,12 @@
               <p class="lonCoord"></p>
               <p class="uvi"></p>
             </div>
-          </div>
         </div>
+
+        <div class="map-image-section">
+          <!-- <img class="map-image"> -->
+        </div>
+        
         <section id="form">
           <ul class="searchHistLi"></ul>
           <div id="previousSearches" class="form-group"></div>
@@ -91,5 +99,6 @@
 
     <!--SCRIPT TAGS-->
     <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/config.js"></script>
   </body>
 </html>

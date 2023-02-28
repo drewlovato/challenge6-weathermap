@@ -13,6 +13,8 @@ var clearBtn = document.querySelector(".clear");
 var topWeatherIcon = document.querySelector(".current-weather-icon");
 var topWeatherDesc = document.querySelector(".current-weather-desc");
 
+let mapImage = document.querySelector(".map-image-section");
+
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
 
@@ -107,7 +109,7 @@ function cityApi(searchText) {
 }
 
 // function 2 fetch url 1 & 2 ( )
-function longLatApi(lat, lon, city) {
+function longLatApi(lat, lon, city, searchText) {
   let requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hour&units=imperial&appid=3f3600732e8599f586337a5c93fffe3d`;
   fetch(requestUrl)
     .then((response) => response.json())
@@ -138,8 +140,29 @@ function longLatApi(lat, lon, city) {
       coordLonEl.textContent = `long: ${lon}`;
       nameEl.textContent = city;
 
-      // var topWeatherIcon = document.createElement("img");
-      // topWeatherIcon.classList.add("current-weather-icon");
+      // MapBox Image Display
+      const divRow = document.createElement("div");
+      const divMapImage = document.createElement("div");
+      divMapImage.classList.add("map-image-section");
+
+      // Mapbox API key generation
+      let mapApiKey = config.MAP_BOX_API_KEY;
+      // let lat = data[0].lat;
+      // let lon = data[0].lon;
+      let zoom = 9;
+      let size = "240X240";
+      let apiUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lon},${lat},${zoom},0/${size}?access_token=${mapApiKey}`;
+
+      const locationImage = document.createElement("img");
+      locationImage.classList.add("map-image");
+      locationImage.src = apiUrl;
+      locationImage.alt = searchText;
+      divMapImage.append(locationImage);
+
+      divRow.append(divMapImage);
+
+      mapImage.append(divRow);
+
       topWeatherIcon.src = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`;
       topWeatherIcon.textContent = `${data.current.weather[0].main}`;
       topWeatherDesc.src = `https://openweathermap.org/img/wn/${data.current.weather[0].description}.png`;
@@ -194,6 +217,7 @@ function longLatApi(lat, lon, city) {
 
         // Weather Icon Element Chunk (Part of Card)
         var futureIconEl = document.createElement("img");
+        futureIconEl.classList.add("imgIcon");
         futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@2x.png`;
         futureIconEl.alt = futureDescVal;
         cardEl.append(futureIconEl);

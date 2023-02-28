@@ -21,6 +21,7 @@
   "homepage": "https://github.com/drewlovato/weathermap#readme",
   "dependencies": {
     "framer-motion": "^8.4.2",
+    "mapbox-gl": "^2.13.0",
     "sass": "^1.57.1"
   }
 }

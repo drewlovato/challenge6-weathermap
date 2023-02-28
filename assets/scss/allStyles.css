@@ -139,28 +139,34 @@ main .weather-display {
   padding: 2rem;
   border-radius: 1rem;
   display: flex;
+  justify-content: space-between;
 }
 main .weather-display .currentCard {
   color: rgb(0, 149, 255);
-  width: 75%;
+  max-width: 75%;
   font-size: 1.5em;
   font-family: "Merriweather Sans", sans-serif;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-around;
+  padding-left: 2rem;
 }
 main .weather-display .currentCard .currentHeader {
   display: flex;
+  align-content: center;
+  max-width: 35%;
+  margin-right: 1rem;
 }
 main .weather-display .currentCard .currentHeader .name {
   font-family: "Merriweather Sans", sans-serif;
-  color: rgb(0, 149, 255);
   font-size: 6rem;
+  color: rgb(0, 149, 255);
+  max-width: 100%;
 }
 main .weather-display .currentCard .currentHeader .currentHeaderImagery {
   display: flex;
   flex-direction: column;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 main .weather-display .currentCard .currentHeader .currentHeaderImagery .current-weather-icon {
   max-width: 100px;
@@ -176,7 +182,7 @@ main .weather-display .currentCard .currentCardMainSub {
   max-width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 0.75rem 0 2rem 0;
+  margin: 0.75rem 1rem 2rem 1rem;
 }
 main .weather-display .currentCard .currentCardMainSub p {
   color: rgb(249, 96, 40);
@@ -188,18 +194,31 @@ main .weather-display .currentCard .currentCardSecondSub {
   justify-content: space-between;
   font-size: 1rem;
   font-family: "Merriweather Sans", sans-serif;
+  margin: 0rem 1rem 0rem 1rem;
 }
 main .weather-display .currentCard .currentCardSecondSub p {
   color: rgb(208, 208, 208);
   display: flex;
 }
-main #form {
-  width: 25%;
+main .weather-display .map-image-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 0.5rem;
 }
-main #form #previousSearches {
+main .weather-display .map-image-section .map-image {
+  height: 200px;
+  width: 200px;
+}
+main .weather-display #form {
+  width: 25%;
+  padding-right: 2rem;
+}
+main .weather-display #form #previousSearches {
   width: 100%;
 }
-main #form #previousSearches button {
+main .weather-display #form #previousSearches button {
   width: 100%;
   height: 3rem;
   padding: 0.5rem;
@@ -214,7 +233,7 @@ main #form #previousSearches button {
   z-index: 1;
   cursor: pointer;
 }
-main #form #previousSearches button:hover {
+main .weather-display #form #previousSearches button:hover {
   border: solid 0.1rem rgb(77, 160, 215);
   color: rgb(77, 160, 215);
   background-color: white;
@@ -251,7 +270,7 @@ main #form #previousSearches button:hover {
   display: flex;
 }
 
-img {
+.imgIcon {
   height: 70px;
   width: 70px;
   margin-left: 30%;
