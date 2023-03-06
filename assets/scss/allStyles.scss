@@ -59,7 +59,7 @@ header {
       border: none;
       font-weight: bold;
       font-family: "Work Sans", sans-serif;
-      background-color: rgb(208, 208, 208);
+      background-color: rgb(224, 224, 232);
       color: white;
       padding-left: 20px;
       appearance: none;
@@ -80,7 +80,7 @@ header {
       width: 7rem;
       border: none;
       position: relative;
-      background-color: rgb(208, 208, 208);
+      background-color: rgb(224, 224, 232);
       color: white;
       font-family: "Work Sans", sans-serif;
       font-weight: bold;
@@ -97,7 +97,7 @@ header {
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-color: rgb(255, 46, 46);
+        background-color: rgb(255, 72, 0);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 300ms ease-in-out;
@@ -118,7 +118,7 @@ header {
       margin: 0.5rem;
       border: none;
       position: relative;
-      background-color: rgb(62, 62, 62);
+      background-color: rgb(0, 149, 255);
       color: white;
       font-family: "Work Sans", sans-serif;
       font-weight: bold;
@@ -147,7 +147,7 @@ main {
     background: white;
     background-attachment: fixed;
     border: solid rgb(0, 149, 255) 0.25rem;
-    box-shadow: 10px 10px 15px rgb(111, 138, 190);
+    box-shadow: 5px 10px 20px rgb(192, 207, 235);
     margin: 10px;
     padding: 2rem;
     border-radius: 1rem;
@@ -168,7 +168,7 @@ main {
         display: flex;
         align-content: center;
         max-width: 35%;
-        margin-right: 1rem;
+        margin-bottom: 1rem;
 
         .name {
           font-family: "Merriweather Sans", sans-serif;
@@ -201,11 +201,12 @@ main {
         max-width: 100%;
         display: flex;
         justify-content: space-between;
-        margin: 0.75rem 1rem 2rem 1rem;
+        margin: 0.75rem 0 0.75rem 1rem;
 
         p {
           color: rgb(249, 96, 40);
           font-size: 1rem;
+          font-weight: 600;
         }
       }
 
@@ -216,10 +217,10 @@ main {
         justify-content: space-between;
         font-size: 1rem;
         font-family: "Merriweather Sans", sans-serif;
-        margin: 0rem 1rem 0rem 1rem;
+        margin: 0rem 0 0rem 1rem;
 
         p {
-          color: rgb(208, 208, 208);
+          color: rgb(224, 224, 232);
           display: flex;
         }
       }
@@ -287,52 +288,61 @@ main {
   justify-content: space-evenly;
   text-align: center;
   border-radius: 1rem;
-  background: linear-gradient(
-      217deg,
-      rgba(66, 120, 212, 0.8),
-      rgba(255, 0, 0, 0) 70.71%
-    ),
-    linear-gradient(127deg, rgba(42, 42, 110, 0.8), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(336deg, rgba(194, 231, 238, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  background: white;
+  border: solid rgb(0, 149, 255) 0.25rem;
+  box-shadow: 5px 10px 20px rgb(192, 207, 235);
   background-attachment: fixed;
-  border-width: 0.1em;
   margin: 10px;
   width: 250px;
   height: 275px;
   padding: 30px;
   font-family: "Work Sans", sans-serif;
-  box-shadow: 10px 10px 15px rgb(111, 138, 190);
+
+  .pDate {
+    display: flex;
+    justify-content: center;
+    font-family: "Work Sans", sans-serif;
+    color: rgb(0, 149, 255);
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+
+  .pDesc {
+    display: flex;
+    justify-content: center;
+    font-family: "Work Sans", sans-serif;
+    color: rgb(224, 224, 232);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .imgIcon {
+    height: 90px;
+    width: 90px;
+    margin-left: 24%;
+  }
+
+  .divGauge {
+    display: flex;
+
+    p {
+      max-width: 100%;
+      display: flex;
+      text-align: center;
+      margin: 7%;
+      font-family: "Work Sans", sans-serif;
+      color: rgb(0, 149, 255);
+      font-weight: 600;
+      font-size: 0.55rem;
+    }
+  }
 }
 
 .divReadings {
   display: flex;
 }
 
-.imgIcon {
-  height: 70px;
-  width: 70px;
-  margin-left: 30%;
-}
-
-/* bottom three value for weather (card) */
-.divGauge {
-  color: white;
-  font-size: small;
-  font-weight: 400;
-  display: flex;
-}
-
-.pDate {
-  font-weight: 700;
-  font-family: "Merriweather Sans", sans-serif;
-  letter-spacing: 0.05em;
-  font-size: 20px;
-  color: white;
-}
-
-.pDesc {
-  color: rgb(164, 219, 255);
-}
+/* bottom three values for weather (card) */
 
 /* START OF FOOTER */
 footer p {
@@ -341,9 +351,9 @@ footer p {
   left: 0;
   bottom: 0;
   height: 35px;
-  color: white;
   align-items: center;
   font-size: 0.5em;
+  color: rgb(0, 149, 255) 0.25rem;
 }
 
 .hide {

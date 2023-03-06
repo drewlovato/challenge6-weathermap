@@ -13,7 +13,7 @@ var clearBtn = document.querySelector(".clear");
 var topWeatherIcon = document.querySelector(".current-weather-icon");
 var topWeatherDesc = document.querySelector(".current-weather-desc");
 
-let mapImage = document.querySelector(".map-image-section");
+let mapImageEl = document.querySelector(".map-image-section");
 
 // variables for future elements
 var futureEl = document.querySelector(".futureCard");
@@ -79,7 +79,7 @@ function moveHeaderClear() {
 // function 1 fetch url 1
 function cityApi(searchText) {
   if (!searchHistory.includes(inputValue.value)) {
-    searchHistory.push(inputValue.value);
+    searchHistory.push(inputValue.value.toUpperCase());
     localStorage.setItem("previousSearches", JSON.stringify(searchHistory));
   }
 
@@ -99,8 +99,8 @@ function cityApi(searchText) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const lat = data[0].lat;
-      const lon = data[0].lon;
+      const lat = data[0].lat.toFixed(6);
+      const lon = data[0].lon.toFixed(6);
       const city = data[0].name;
       longLatApi(lat, lon, city);
     });
@@ -122,6 +122,7 @@ function longLatApi(lat, lon, city, searchText) {
       tempEL.innerHTML = "";
       windEL.innerHTML = "";
       uvEl.innerHTML = "";
+      mapImageEl.innerHTML = "";
 
       // variables for currently weather values
       var tempValue = data.current.temp;
@@ -133,17 +134,19 @@ function longLatApi(lat, lon, city, searchText) {
       humiEl.textContent = `${humiValue}${perSym}`;
       tempEL.textContent = `${tempValue}${farSym}`;
       windEL.textContent = `${windValue} ${windSym}`;
-      uvEl.textContent = `uvi: ${uvValue}`;
+      uvEl.textContent = `UVI: ${uvValue}`;
 
       // these values are passed through first fetch function (see below)
-      coordLatEl.textContent = `lat: ${lat}`;
-      coordLonEl.textContent = `long: ${lon}`;
+      coordLatEl.textContent = `LAT: ${lat}`;
+      coordLonEl.textContent = `LON: ${lon}`;
       nameEl.textContent = city;
 
+      removeAllChildNodes(mapImageEl);
+
       // MapBox Image Display
-      const divRow = document.createElement("div");
-      const divMapImage = document.createElement("div");
-      divMapImage.classList.add("map-image-section");
+      // const divRow = document.createElement("div");
+      // const divMapImage = document.createElement("div");
+      // divMapImage.classList.add("map-image-section");
 
       // Mapbox API key generation
       let mapApiKey = config.MAP_BOX_API_KEY;
@@ -156,12 +159,13 @@ function longLatApi(lat, lon, city, searchText) {
       const locationImage = document.createElement("img");
       locationImage.classList.add("map-image");
       locationImage.src = apiUrl;
-      locationImage.alt = searchText;
-      divMapImage.append(locationImage);
+      console.log(locationImage);
+      // locationImage.alt = searchText;
 
-      divRow.append(divMapImage);
-
-      mapImage.append(divRow);
+      mapImageEl.textContent = `${locationImage}`;
+      // mapImageEl.append(locationImage);
+      // divRow.append(divMapImage);
+      // mapImage.append(divRow);
 
       topWeatherIcon.src = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`;
       topWeatherIcon.textContent = `${data.current.weather[0].main}`;
@@ -259,6 +263,12 @@ function longLatApi(lat, lon, city, searchText) {
       console.log(searchText);
     }
   });
+
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
 
   function init() {
     displayPreviousSearches();
