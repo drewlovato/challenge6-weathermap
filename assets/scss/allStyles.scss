@@ -230,12 +230,11 @@ main {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      border-radius: 0.5rem;
+      max-width: 100%;
 
       .map-image {
         height: 200px;
-        width: 200px;
+        width: 320px;
       }
     }
 

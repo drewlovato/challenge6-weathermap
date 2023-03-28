@@ -153,16 +153,18 @@ function longLatApi(lat, lon, city, searchText) {
       // let lat = data[0].lat;
       // let lon = data[0].lon;
       let zoom = 9;
-      let size = "240X240";
+      let size = "450X300";
       let apiUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lon},${lat},${zoom},0/${size}?access_token=${mapApiKey}`;
 
       const locationImage = document.createElement("img");
       locationImage.classList.add("map-image");
       locationImage.src = apiUrl;
       console.log(locationImage);
+      mapImageEl.appendChild(locationImage);
+      console.log(locationImage);
       // locationImage.alt = searchText;
 
-      mapImageEl.textContent = `${locationImage}`;
+      // mapImageEl.textContent = `${locationImage}`;
       // mapImageEl.append(locationImage);
       // divRow.append(divMapImage);
       // mapImage.append(divRow);

@@ -205,12 +205,11 @@ main .weather-display .map-image-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  border-radius: 0.5rem;
+  max-width: 100%;
 }
 main .weather-display .map-image-section .map-image {
   height: 200px;
-  width: 200px;
+  width: 320px;
 }
 main .weather-display #form {
   width: 25%;
