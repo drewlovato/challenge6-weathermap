@@ -1,31 +1,91 @@
-# challenge6-weathermap
+# myWeather
 
-DU Bootcamp - Challenge 6 Weather Map
+[![License:](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-JS
+## Index
 
-- pulled long, lat, and city from openweather api
-- pulled temp, humidity, and uvi from seperate openweather api
-- worked classes and layout through js
-- buttons created to pull certain weather assets using local storage
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Future Enhancements](#future-enhancements)
+4. [Technologies](#technologies)
+5. [Collaborators](#collaborators)
+6. [License](#license)
+7. [Resources](#resources)
 
-CSS
+## Overview
 
-- pulled some classes through JS
-- styled all the rest through HTML classes
+I created this application to show case my ability to create a Geo Location Application that allows you to search any city in the world. This application shows the forecast for the next five days based on the day you searched and subsequently lists the corresponding dates and times for each. Underneath each icon for the type of weather for that day lists the UVI, Humidity, and Farenheit Temperature.
 
-HTML
+### Description
 
-- tried to use HTML as little as possible
+- Lists the present day's weather along with the forecast for the next five days.
+- Application allows you to search any city in the world
+- You can use this application to check humidity, UVI, Temperature, Location.
 
-* used simantics with some divs
+### User Story
 
-GITHUB PAGES:
-https://drewlovato.github.io/challenge6-weathermap/
+```
+As a person who wants to be prepared for the weather,
+I want a application that gives me information on the weather in any city that I search around the world.
+This allows me to prepare more efficiently for anywhere I travel to.
 
-GITHUB LINK
-https://github.com/drewlovato/challenge6-weathermap
+```
 
-<img width="1165" alt="Screen Shot 2022-08-02 at 11 02 38 AM" src="https://user-images.githubusercontent.com/59673032/182437120-2aa066e9-0572-4932-9ba3-f51880f23519.png">
+## Features
 
-<img width="1169" alt="Screen Shot 2022-08-02 at 11 02 50 AM" src="https://user-images.githubusercontent.com/59673032/182437158-6c3e3f8f-69da-4e69-823f-a8970bbce755.png">
+- User
+  - Search Bar
+  - Geo location tool
+  - Clear Button
+  - Recent Searches Button
+  - Humidity
+  - Farenheit
+  - UV Index
+  - Weather Icon
+  - Longitude & Latitude
+
+## Future Enhancements
+
+- The ability to search with the map
+- Make this application LIVE
+- Mobile version with more features
+- Save locations to your profile
+
+### Static Screenshots
+
+TBD
+
+### Video Preview
+
+TBD
+
+## Technologies
+
+- HTML
+- CSS
+- JavaScript
+- [Open Weather API](https://openweathermap.org/api)
+- [MomentJs](https://momentjs.com/docs/)
+- [GitHub](https://www.github.com)
+- [Syntactically Awesome Style Sheets](https://sass-lang.com/)
+
+## Collaborators
+
+- Andrew Lovato: [Github LINK](https://github.com/drewlovato)
+
+## License
+
+[![License:](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+This application is covered under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Resources
+
+- GitHub Repo: [https://github.com/drewlovato/weathermap](https://github.com/drewlovato/weathermap)
+
+This application is covered under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Resources
+
+- GitHub Repo: [https://github.com/drewlovato/weathermap](https://github.com/drewlovato/weathermap)
+- Heroku Hosted URL: TBD

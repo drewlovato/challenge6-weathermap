@@ -66,6 +66,7 @@ function displayPreviousSearches() {
   }
 }
 
+// Animation to move header up after search
 function moveHeaderSearch() {
   document.getElementById("mainHeader").style.top = "-.75rem";
   document.getElementById("mainHeader").style.transition = "400ms ease-in-out";
@@ -143,15 +144,8 @@ function longLatApi(lat, lon, city, searchText) {
 
       removeAllChildNodes(mapImageEl);
 
-      // MapBox Image Display
-      // const divRow = document.createElement("div");
-      // const divMapImage = document.createElement("div");
-      // divMapImage.classList.add("map-image-section");
-
       // Mapbox API key generation
       let mapApiKey = config.MAP_BOX_API_KEY;
-      // let lat = data[0].lat;
-      // let lon = data[0].lon;
       let zoom = 9;
       let size = "450X300";
       let apiUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lon},${lat},${zoom},0/${size}?access_token=${mapApiKey}`;
@@ -162,12 +156,6 @@ function longLatApi(lat, lon, city, searchText) {
       console.log(locationImage);
       mapImageEl.appendChild(locationImage);
       console.log(locationImage);
-      // locationImage.alt = searchText;
-
-      // mapImageEl.textContent = `${locationImage}`;
-      // mapImageEl.append(locationImage);
-      // divRow.append(divMapImage);
-      // mapImage.append(divRow);
 
       topWeatherIcon.src = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`;
       topWeatherIcon.textContent = `${data.current.weather[0].main}`;
@@ -197,7 +185,10 @@ function longLatApi(lat, lon, city, searchText) {
         var futureIconVal = element.weather[0].icon;
         var futureDateVal = moment()
           .add(index + 1, "days")
-          .format("LLL");
+          .format("ddd, MMMM D YYYY");
+        var futureTimeVal = moment()
+          .add(index + 1, "days")
+          .format("h:mm a");
 
         // var futureIconEl = document.createElement("main-weather-icon");
         // futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@4x.png`;
@@ -220,6 +211,12 @@ function longLatApi(lat, lon, city, searchText) {
         futureDateEl.textContent = `${futureDateVal}`;
         futureDateEl.classList.add("pDate");
         cardEl.append(futureDateEl);
+
+        // Time Element Chunk (Part of Card)
+        var futureTimeEl = document.createElement("p");
+        futureTimeEl.textContent = `${futureTimeVal}`;
+        futureTimeEl.classList.add("pTime");
+        cardEl.append(futureTimeEl);
 
         // Weather Icon Element Chunk (Part of Card)
         var futureIconEl = document.createElement("img");
