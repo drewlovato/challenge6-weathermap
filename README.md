@@ -53,7 +53,7 @@ This allows me to prepare more efficiently for anywhere I travel to.
 
 ### Static Screenshots
 
-TBD
+![slideshow-weathermap-01](https://user-images.githubusercontent.com/59673032/235467531-e953c799-756b-4981-89d6-3bf24ec9202d.png)
 
 ### Video Preview
 
